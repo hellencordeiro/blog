@@ -1,0 +1,25 @@
+<div class="m-4">
+<h1><%= @article.title %></h1>
+
+<p><%= @article.body %></p>
+</div>
+
+<div class="p-2 m-4">
+<ul>
+    <li><%= link_to "Edit", edit_article_path(@article) %></li>
+    <li><%= link_to "Destroy", article_path(@article), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+                    } %></li>
+</ul>
+</div>
+
+<div class="p-2 m-4">
+<h2>Comments</h2>
+<%= render @article.comments %>
+</div>
+
+<div>
+<h2 class="p-2 m-4">Add a comment:<h2>
+<%= render 'comments/form' %>
+</div>

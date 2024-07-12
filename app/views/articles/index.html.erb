@@ -1,0 +1,21 @@
+<div class="h-screen w-screen bg-gradient-to-t from-gradientColorStops-cyan-200 to-gradientColorStops-purple-500 px-6 py-2">
+    <h1 class="text-3xl font-bold underline m-7 w-60">
+        Hello world!
+    </h1>
+    
+    <div class="text-wrap mx-auto">
+        <p>Our blog has <%= Article.public_count %> articles and counting!</p>
+    </div>
+
+<ul>
+    <% @articles.each do |article| %>
+        <% unless article.archived? %>
+            <li>
+                <%= link_to article.title, article %>
+            </li>
+        <% end %>
+    <% end %>
+</ul>
+
+<%= link_to "New Article", new_article_path %>
+
